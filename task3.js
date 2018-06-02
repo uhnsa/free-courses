@@ -14,4 +14,7 @@ while(del==0){
 	s--;
 	}
 }
+if(s<0){
+	s=-s;
+}
 console.log(s);
