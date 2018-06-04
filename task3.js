@@ -8,7 +8,5 @@ while (a!=0 && b!=0){
 	}
 }
 var s=a+b;
-if(s<0){
-	s=-s;
-}
+s=Math.abs(s);
 console.log(s);
