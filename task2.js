@@ -23,10 +23,13 @@ if(str.length==sstr.length){
 	}
 }else{
 	process.stdout.write("-1");
+	return;
 }
 j=str.length-count;
 if(count>j){
-	console.log(j);
+	j=j.toString();
+	process.stdout.write(j);
 }else{
-	console.log(count);
+	count=count.toString();
+	process.stdout.write(count);
 }
