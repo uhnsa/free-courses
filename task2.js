@@ -1,35 +1,34 @@
-var str =process.argv[2];
-var sstr=process.argv[3];
-var t=0;
-var nstr="";
-var count=0;
-var j=0;
-if(str.length==sstr.length){
-		nstr=str;
-	while(nstr!=sstr){
-		nstr="";
-		for (var i=1; i<str.length-j; i++){
-			nstr=nstr+str[i+j];
-		}
-		for (var i=0; i<=count; i++){
-			nstr=nstr+str[i];
-		}
-		count=count+1;
-		j=j+1;
-		if(count>=str.length){
-			process.stdout.write("-1");
-			return;
-		}
-	}
-}else{
-	process.stdout.write("-1");
-	return;
+const a = process.argv[2];
+const b = process.argv[3];
+
+const task2 = (a, b) => {
+
+    if (a.length != b.length) return -1;
+
+    const len = a.length;
+    let count = 0;
+    
+    for (let i = 0; i < len; i++) {
+
+        for (let j = 0; j < len; j++) {
+            if (a[j] != b[(j + i) % len]) {
+                count = 0;
+                break;
+            }
+
+            count++;
+        }
+
+        if (count) {
+            return i == 0 ? 0 :
+                i > Math.floor(len / 2) ? len - i : i;
+        }
+
+    }
+
+    return -1;
 }
-j=str.length-count;
-if(count>j){
-	j=j.toString();
-	process.stdout.write(j);
-}else{
-	count=count.toString();
-	process.stdout.write(count);
-}
+
+const output = task2(a, b).toString();
+
+process.stdout.write(output);
